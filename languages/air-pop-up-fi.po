@@ -1,0 +1,155 @@
+# Copyright (C) 2024 Digitoimisto Dude
+# This file is distributed under the GPLv3.
+msgid ""
+msgstr ""
+"Project-Id-Version: Air pop up 1.0.0\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/air-pop-up\n"
+"POT-Creation-Date: 2024-12-11T12:43:14+00:00\n"
+"PO-Revision-Date: 2024-12-11 15:04+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.5\n"
+"X-Domain: air-pop-up\n"
+
+#. Plugin Name of the plugin
+#: air-pop-up.php
+msgid "Air pop up"
+msgstr ""
+
+#. Description of the plugin
+#: air-pop-up.php
+msgid "Easy way to create and manage pop ups."
+msgstr ""
+
+#. Author of the plugin
+#: air-pop-up.php
+msgid "Digitoimisto Dude"
+msgstr ""
+
+#. Author URI of the plugin
+#: air-pop-up.php
+msgid "https://dude.fi"
+msgstr ""
+
+#: acf/acf.php:24 cpt-settings.php:12
+msgid "Pop up"
+msgstr "Ponnahdusikkuna"
+
+#: acf/acf.php:28
+msgid "Timing and visibility"
+msgstr "Ajastus ja näkyvyys"
+
+#: acf/acf.php:46
+msgid "Start"
+msgstr "Aloitus"
+
+#: acf/acf.php:65
+msgid "Stop"
+msgstr "Lopetus"
+
+#: acf/acf.php:84
+msgid "Show on"
+msgstr "Näytä sivulla"
+
+#: acf/acf.php:88
+msgid ""
+"Pop up will be shown on pages selected here. If none are selected, pop up "
+"will be shown on all pages."
+msgstr ""
+"Jos tähän valitaan sivuja, ponnahdusikkuna näytetään vain kyseisillä "
+"sivuilla. Jos yhtään sivua ei valita ponnahdusikkuna näytetään kaikilla "
+"sivuilla."
+
+#: acf/acf.php:113
+msgid "Show again"
+msgstr "Näytä uudelleen"
+
+#: acf/acf.php:117
+msgid ""
+"<strong>Session</strong> Pop up is shown once per session.<br><strong>Never</"
+"strong> Pop up will only show once per user. Pop up will only be shown again "
+"if user clears browser storage.<br><strong>Timed</strong> Pop up will be "
+"shown again after set period of time."
+msgstr ""
+"<strong>Istunto</strong> Ponnahdusikkuna näytetään kerran per istunto. "
+"Istunto alkaa sivuston auettua ensimmäistä kertaa. Istunto päättyy "
+"sivustolta pois lähdettäessä esim. sulkiessa välilehden.<br><strong>Ei "
+"koskaan</strong> Ponnahdusikkuna ei tule käyttäjälle näkyviin uudelleen "
+"ellei käyttäjä nollaa selaimen muistia.<br><strong>Ajastettu</strong> "
+"Ponnahdusikkuna näytetään aina uudelleen määritetyn aikaintervaalin jälkeen."
+
+#: acf/acf.php:126
+msgid "Session"
+msgstr "Istunto"
+
+#: acf/acf.php:127
+msgid "Never"
+msgstr "Ei koskaan"
+
+#: acf/acf.php:128
+msgid "Timed"
+msgstr "Ajastettu"
+
+#: acf/acf.php:138
+msgid "Time in seconds after pop up is shown again."
+msgstr "Uudelleennäytön aikaväli sekunteina."
+
+#: acf/acf.php:142
+msgid "Hour = 3600<br>Day = 86400"
+msgstr "Tunti = 3600<br>Vuorokausi = 86400"
+
+#: acf/acf.php:169
+msgid "Delay"
+msgstr "Viivästys"
+
+#: acf/acf.php:173
+msgid "Time in seconds after pop up is shown."
+msgstr "Aika sekunteina, minkä jälkeen ponnahdusikkuna tulee näkyviin."
+
+#: acf/acf.php:192 acf/acf.php:231
+msgid "Content"
+msgstr "Sisältö"
+
+#: acf/acf.php:210
+msgid "Heading"
+msgstr "Otsikko"
+
+#: cpt-settings.php:11 cpt-settings.php:22
+msgid "Pop ups"
+msgstr "Ponnahdusikkunat"
+
+#: cpt-settings.php:13 cpt-settings.php:14
+msgid "Add new pop up"
+msgstr "Lisää uusi ponnahdusikkuna"
+
+#: cpt-settings.php:15
+msgid "Edit pop up"
+msgstr "Muokkaa ponnahdusikkunaa"
+
+#: cpt-settings.php:16
+msgid "New pop up"
+msgstr "Uusi ponnahdusikkuna"
+
+#: cpt-settings.php:17
+msgid "View pop up"
+msgstr "Näytä ponnahdusikkuna"
+
+#: cpt-settings.php:18
+msgid "Search pop ups"
+msgstr "Etsi ponnahdusikkunoita"
+
+#: cpt-settings.php:19
+msgid "Pop up not found"
+msgstr "Ponnahdusikkunoita ei löytynyt"
+
+#: cpt-settings.php:20
+msgid "Pop up not found in trash"
+msgstr "Ponnahdusikkunoita ei löytynyt roskista"
+
+#: cpt-settings.php:21
+msgid "Pop up parent"
+msgstr "Ponnahdusikkunan vanhempi"

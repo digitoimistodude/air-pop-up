@@ -1,0 +1,53 @@
+:root {
+  --air-pop-up-color-background: #1d2b42;
+  --air-pop-up-color-text: #fff;
+  --air-pop-up-width-container: 500px;
+}
+
+.air-pop-up {
+  color: var(--air-pop-up-color-text);
+  display: none;
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+}
+
+.air-pop-up.visible {
+  display: block;
+}
+
+.air-pop-up * {
+  color: var(--air-pop-up-color-text);
+}
+
+.air-pop-up .pop-up-overlay {
+  background-color: rgba(0,0,0, .3);
+  position: absolute;
+  inset: 0;
+}
+
+.air-pop-up .button-pop-up-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+.air-pop-up h2 {
+  margin-top: 0;
+}
+
+.air-pop-up .pop-up-content {
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  width: calc(100% - 20px);
+  max-width: var(--air-pop-up-width-container);
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  padding: 40px;
+  background-color: var(--air-pop-up-color-background);
+  box-shadow: 0px 0px 20px rgba(0,0,0, .3);
+}

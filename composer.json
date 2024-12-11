@@ -1,0 +1,19 @@
+{
+  "name": "digitoimistodude/air-pop-up",
+  "type": "wordpress-plugin",
+  "description": "Easy way to create and manage pop ups.",
+  "homepage": "https://https://github.com/digitoimistodude/air-pop-up",
+  "keywords": [
+    "wordpress",
+    "plugin"
+  ],
+  "license": "GPL-3.0+",
+  "version": "1.0.0",
+  "authors": [
+    {
+      "name": "Digitoimisto Dude Oy",
+      "email": "moro@dude.fi",
+      "homepage": "https://github.com/digitoimistodude"
+    }
+  ]
+}
