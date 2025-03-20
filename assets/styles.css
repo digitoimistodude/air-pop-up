@@ -53,13 +53,13 @@
   box-shadow: 0px 0px 20px rgba(0,0,0, .3);
 }
 
-.air-pop-up .pop-up-link-wrapper a {
+.air-pop-up .air-pop-up-link-wrapper a {
   color: var(--air-pop-up-color-text);
   font-weight: 600;
   text-decoration-color: var(--air-pop-up-color-text);
 }
 
-.air-pop-up .pop-up-link-wrapper:hover a {
+.air-pop-up .air-pop-up-link-wrapper:hover a {
   color: var(--air-pop-up-color-link-hover);
   text-decoration-color: var(--air-pop-up-color-link-hover);
 }

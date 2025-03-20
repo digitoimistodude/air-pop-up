@@ -14,8 +14,8 @@
       <?php echo wp_kses_post( wpautop( $pop_up['content'] ) ); ?>
 
       <?php if ( $pop_up['link'] && ! empty( $pop_up['link']['url'] ) ) : ?>
-        <p class="pop-up-link-wrapper">
-          <a href="<?php echo esc_url( $pop_up['link']['url'] ) ?>" class="button-pop-up-link">
+        <p class="air-pop-up-link-wrapper">
+          <a href="<?php echo esc_url( $pop_up['link']['url'] ) ?>" class="pop-up-link" data-pop-up-id="<?php echo esc_html( $pop_up['guid'] ) ?>">
             <?php echo esc_html( $pop_up['link']['title'] ) ?>
           </a>
         </p>
@@ -23,10 +23,10 @@
 
       <?php if ( $pop_up['yes_no'] ) : ?>
         <div class="pop-up-yes-no-wrapper">
-          <button class="air-pop-up-button button-pop-up-yes">
+          <button class="air-pop-up-button pop-up-yes" data-pop-up-id="<?php echo esc_html( $pop_up['guid'] ) ?>">
             <?php echo esc_html( $pop_up['yes_no']['label_yes'] ) ?>
           </button>
-          <button class="air-pop-up-button button-pop-up-no">
+          <button class="air-pop-up-button pop-up-no" data-pop-up-id="<?php echo esc_html( $pop_up['guid'] ) ?>">
             <?php echo esc_html( $pop_up['yes_no']['label_no'] ) ?>
           </button>
         </div>

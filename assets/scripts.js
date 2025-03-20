@@ -37,11 +37,16 @@ const firstFocusableElement = allFocusableElements[0];
 popUps.forEach((popUp) => {
   const { popUpId } = popUp.dataset;
   const popUpData = pop_up_data[popUpId];
+  const ajaxUrl = popUpData.ajaxUrl;
   const clickableElements = popUp.querySelectorAll('.pop-up-close');
   // popUp.querySelector('.pop-up-content').setAttribute('tabindex', 0);
   const focusableElements = filterNonValidTabableItems(popUp.querySelectorAll(
     '[tabindex]:not([tabindex="-1"]), a, button, input, textarea, select, details',
   ));
+
+  const popUpLink = popUp.querySelector('.pop-up-link');
+  const popUpYes = popUp.querySelector('.pop-up-yes');
+  const popUpNo = popUp.querySelector('.pop-up-no');
 
   setTimeout(() => {
     const currentFocusedElement = document.activeElement;
@@ -57,6 +62,7 @@ popUps.forEach((popUp) => {
     if (popUpData.show_again === 'session') {
       if (sessionStorage.getItem(popUpId) !== 'true') {
         popUp.classList.add('visible');
+        airPopUpShow(popUp);
       }
 
       clickableElements.forEach((clickableElement) => {
@@ -85,12 +91,31 @@ popUps.forEach((popUp) => {
           }
         }
       });
+
+      if (popUpLink) {
+        popUpLink.addEventListener('click', () => {
+          airPopUpClick(popUp, ajaxUrl);
+        });
+      }
+
+      if (popUpYes) {
+        popUpYes.addEventListener('click', () => {
+          airPopUpYes(popUp, ajaxUrl);
+        });
+      }
+
+      if (popUpNo) {
+        popUpNo.addEventListener('click', () => {
+          airPopUpNo(popUp, ajaxUrl);
+        });
+      }
     }
 
     // Popup - never
     if (popUpData.show_again === 'never') {
       if (localStorage.getItem(popUpId) !== 'true') {
         popUp.classList.add('visible');
+        airPopUpShow(popUp, ajaxUrl);
       }
 
       clickableElements.forEach((clickableElement) => {
@@ -119,6 +144,24 @@ popUps.forEach((popUp) => {
           }
         }
       });
+
+      if (popUpLink) {
+        popUpLink.addEventListener('click', () => {
+          airPopUpClick(popUp, ajaxUrl );
+        });
+      }
+
+      if (popUpYes) {
+        popUpYes.addEventListener('click', () => {
+          airPopUpYes(popUp, ajaxUrl);
+        });
+      }
+
+      if (popUpNo) {
+        popUpNo.addEventListener('click', () => {
+          airPopUpNo(popUp, ajaxUrl);
+        });
+      }
     }
 
     // Popup - timed
@@ -132,14 +175,16 @@ popUps.forEach((popUp) => {
 
       if (!storedItem) {
         popUp.classList.add('visible');
+        airPopUpShow(popUp, ajaxUrl);
       }
 
       if (storedItem && new Date().getTime() - storedItem.time >= storedItem.expire) {
         popUp.classList.add('visible');
+        airPopUpShow(popUp, ajaxUrl);
       }
 
       clickableElements.forEach((clickableElement) => {
-        clickableElement.addEventListener('click', () => {
+        clickableElement.addEventListener('click', (e) => {
           storeData(popUpId, popUpData.timed_time * 1000);
           popUp.classList.remove('visible');
 
@@ -164,8 +209,63 @@ popUps.forEach((popUp) => {
           }
         }
       });
+
+      if (popUpLink) {
+        popUpLink.addEventListener('click', () => {
+          airPopUpClick(popUp);
+        });
+      }
+
+      if (popUpYes) {
+        popUpYes.addEventListener('click', () => {
+          airPopUpYes(popUp);
+        });
+      }
+
+      if (popUpNo) {
+        popUpNo.addEventListener('click', () => {
+          airPopUpNo(popUp);
+        });
+      }
     }
 
     focusableElements[0].focus();
   }, popUpData.delay * 1000);
 });
+
+function airPopUpShow( element, ajaxUrl ) {
+  console.log('Showing pop up:', element.dataset.popUpId);
+  airPopUpAjax( {
+    action: 'air_pop_up_show',
+    id: element.dataset.popUpId,
+  }, ajaxUrl );
+}
+
+function airPopUpClick( element, ajaxUrl ) {
+  airPopUpAjax( {
+    action: 'air_pop_up_click',
+    id: element.dataset.popUpId,
+  }, ajaxUrl );
+}
+
+function airPopUpYes( element, ajaxUrl ) {
+  airPopUpAjax( {
+    action: 'air_pop_up_yes',
+    id: element.dataset.popUpId,
+  }, ajaxUrl );
+}
+
+function airPopUpNo( element, ajaxUrl ) {
+  airPopUpAjax( {
+    action: 'air_pop_up_no',
+    id: element.dataset.popUpId,
+  }, ajaxUrl );
+}
+
+function airPopUpAjax( data, ajaxUrl ) {
+  data.nonce = pop_up_data[data.id].nonce;
+  var xhr = new XMLHttpRequest();
+  xhr.open( 'POST', ajaxUrl, true );
+  xhr.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
+  xhr.send( new URLSearchParams( data ).toString() );
+}

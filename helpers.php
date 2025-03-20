@@ -63,15 +63,17 @@ function get_pop_ups() {
         'show_again'     => get_post_meta( get_the_ID(), 'show_again', true ),
         'timed_time'     => absint( get_post_meta( get_the_ID(), 'timed_time', true ) ),
         'delay'          => absint( get_post_meta( get_the_ID(), 'delay', true ) ),
+        'link'           => null,
+        'yes_no'         => [],
       ];
+
+      // Save guid to post meta for stats collection
+      update_post_meta( get_the_ID(), prefix_meta_key( 'guid' ), $pop_up_temp['guid'] );
 
       // Optional fields
 
       $mode = get_post_meta( get_the_ID(), 'use_link_or_yes_no_choice', true );
       $mode = $mode ? $mode : 'link';
-
-      $pop_up_temp['link'] = null;
-      $pop_up_temp['yes_no'] = [];
 
       if ( 'link' === $mode ) {
         $link = get_post_meta( get_the_ID(), 'link', true );
@@ -121,8 +123,34 @@ function enqueue_scripts() {
   $pop_up_data = [];
 
   foreach ( $pop_ups as $pop_up ) {
+    $pop_up['ajaxUrl'] = admin_url( 'admin-ajax.php' );
+    $pop_up['nonce'] = wp_create_nonce( prefix_meta_key( $pop_up['guid'] ) );
     $pop_up_data[ $pop_up['guid'] ] = $pop_up;
   }
 
   wp_localize_script( 'air-pop-up-scripts', 'pop_up_data', $pop_up_data );
 } // end enqueue_scripts
+
+function prefix_meta_key( $key ) {
+  return 'air_pop_up_' . $key;
+} // end prefix_meta_key
+
+function enqueue_admin_styles() {
+  if ( ! is_admin() ) {
+    return;
+  }
+
+  if ( ! isset( $_GET['post_type'] ) ) {
+    return;
+  }
+
+  if ( 'air-pop-up' !== $_GET['post_type'] ) {
+    return;
+  }
+
+  wp_enqueue_style( 'air-pop-up-admin-styles',
+    plugin_dir_url( __FILE__ ) . 'assets/admin-styles.css',
+    [],
+    filemtime( plugin_dir_path( __FILE__ ) . 'assets/admin-styles.css' )
+  );
+} // end enqueue_admin_styles

@@ -172,10 +172,30 @@ msgstr "Ponnahdusikkunoita ei löytynyt roskista"
 msgid "Pop up parent"
 msgstr "Ponnahdusikkunan vanhempi"
 
-#: helpers.php:85
+#: helpers.php:83
 msgid "Yes"
 msgstr "Kyllä"
 
-#: helpers.php:86
+#: helpers.php:84
 msgid "No"
 msgstr "Ei"
+
+#: inc/admin.php:18
+msgid "Statistics"
+msgstr "Tilastot"
+
+#: inc/admin.php:31
+msgid "%1$s showings"
+msgstr "%1$s näyttökertaa"
+
+#: inc/admin.php:33
+msgid "%1$s link clicks"
+msgstr "%1$s linkin klikkausta"
+
+#: inc/admin.php:35
+msgid "%1$s yes answers"
+msgstr "%1$s kyllä-vastausta"
+
+#: inc/admin.php:37
+msgid "%1$s no answers" 
+msgstr "%1$s ei-vastausta"
