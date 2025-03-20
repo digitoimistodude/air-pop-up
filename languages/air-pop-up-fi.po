@@ -118,6 +118,24 @@ msgstr "Sisältö"
 msgid "Heading"
 msgstr "Otsikko"
 
+#: acf/acf.php:252
+msgid "Use link or yes/no choice"
+msgstr "Käytä linkkiä tai kyllä/ei -valintaa"
+
+#: acf/acf.php:265
+#: acf/acf.php:276
+msgid "Link"
+msgstr "Linkki"
+
+#: acf/acf.php:266
+#: acf/acf.php:301
+msgid "Yes/No Choice"
+msgstr "Kyllä/Ei -valinta"
+
+#: acf/acf.php:305
+msgid "The pop up will show a yes/no choice."
+msgstr "Ponnahdusikkuna näyttää kyllä/ei -valinnan."
+
 #: cpt-settings.php:11 cpt-settings.php:22
 msgid "Pop ups"
 msgstr "Ponnahdusikkunat"

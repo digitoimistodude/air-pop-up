@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2024-12-11T12:43:14+00:00\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-03-20 10:00+0200\n"
 "X-Generator: WP-CLI 2.11.0\n"
 "X-Domain: air-pop-up\n"
 
@@ -102,6 +102,24 @@ msgstr ""
 
 #: acf/acf.php:210
 msgid "Heading"
+msgstr ""
+
+#: acf/acf.php:252
+msgid "Use link or yes/no choice"
+msgstr ""
+
+#: acf/acf.php:265
+#: acf/acf.php:276
+msgid "Link"
+msgstr ""
+
+#: acf/acf.php:266
+#: acf/acf.php:301
+msgid "Yes/No Choice"
+msgstr ""
+
+#: acf/acf.php:305
+msgid "The pop up will show a yes/no choice."
 msgstr ""
 
 #: cpt-settings.php:11

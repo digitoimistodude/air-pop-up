@@ -247,6 +247,78 @@ function register_acf_field() {
         'media_upload' => 0,
         'delay' => 0,
       ],
+      [
+        'key' => 'field_67dbbf11cd972',
+        'label' => __( 'Use link or yes/no choice', 'air-pop-up' ),
+        'name' => 'use_link_or_yes_no_choice',
+        'aria-label' => '',
+        'type' => 'button_group',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => [
+          'width' => '50',
+          'class' => '',
+          'id' => '',
+        ],
+        'choices' => [
+          'link' => __( 'Link', 'air-pop-up' ),
+          'yes_no_choice' => __( 'Yes/No Choice', 'air-pop-up' ),
+        ],
+        'default_value' => 'link',
+        'return_format' => 'value',
+        'allow_null' => 0,
+        'allow_in_bindings' => 0,
+        'layout' => 'horizontal',
+      ],
+      [
+        'key' => 'field_67dbbf11cd973',
+        'label' => __( 'Link', 'air-pop-up' ),
+        'name' => 'link',
+        'aria-label' => '',
+        'type' => 'link',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => [
+          [
+            [
+              'field' => 'field_67dbbf11cd972',
+              'operator' => '==',
+              'value' => 'link',
+            ],
+          ],
+        ],
+        'wrapper' => [
+          'width' => '50',
+          'class' => '',
+          'id' => '',
+        ],
+        'default_value' => '',
+        'allow_in_bindings' => 1,
+      ],
+      [
+        'key' => 'field_67dbbf11cd974',
+        'label' => __( 'Yes/No Choice', 'air-pop-up' ),
+        'name' => 'yes_no_choice',
+        'aria-label' => '',
+        'type' => 'message',
+        'message' => __( 'The pop up will show a yes/no choice.', 'air-pop-up' ),
+        'required' => 0,
+        'conditional_logic' => [
+          [
+            [
+              'field' => 'field_67dbbf11cd972',
+              'operator' => '==',
+              'value' => 'yes_no_choice',
+            ],
+          ],
+        ],
+        'wrapper' => [
+          'width' => '50',
+          'class' => '',
+          'id' => '',
+        ],
+      ],
     ],
     'location' => [
         [
