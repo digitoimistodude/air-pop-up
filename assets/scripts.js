@@ -212,19 +212,21 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
-          airPopUpClick(popUp);
+          airPopUpClick(popUp, ajaxUrl);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
-          airPopUpYes(popUp);
+          airPopUpYes(popUp, ajaxUrl);
+          popUp.classList.remove('visible');
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
-          airPopUpNo(popUp);
+          airPopUpNo(popUp, ajaxUrl);
+          popUp.classList.remove('visible');
         });
       }
     }
@@ -242,6 +244,7 @@ function airPopUpShow( element, ajaxUrl ) {
 }
 
 function airPopUpClick( element, ajaxUrl ) {
+  console.log('Clicking pop up:', element.dataset.popUpId);
   airPopUpAjax( {
     action: 'air_pop_up_click',
     id: element.dataset.popUpId,
