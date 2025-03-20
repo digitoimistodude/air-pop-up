@@ -171,3 +171,11 @@ msgstr "Ponnahdusikkunoita ei löytynyt roskista"
 #: cpt-settings.php:21
 msgid "Pop up parent"
 msgstr "Ponnahdusikkunan vanhempi"
+
+#: helpers.php:85
+msgid "Yes"
+msgstr "Kyllä"
+
+#: helpers.php:86
+msgid "No"
+msgstr "Ei"

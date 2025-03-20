@@ -65,6 +65,26 @@ function get_pop_ups() {
         'delay'          => absint( get_post_meta( get_the_ID(), 'delay', true ) ),
       ];
 
+      // Optional fields
+
+      $mode = get_post_meta( get_the_ID(), 'use_link_or_yes_no_choice', true );
+      $mode = $mode ? $mode : 'link';
+
+      $pop_up_temp['link'] = null;
+      $pop_up_temp['yes_no'] = [];
+
+      if ( 'link' === $mode ) {
+        $link = get_post_meta( get_the_ID(), 'link', true );
+        if ( ! empty( $link['url'] ) && ! empty( $link['title'] ) ) {
+          $pop_up_temp['link'] = $link;
+        }
+      }
+
+      if ( 'yes_no_choice' === $mode ) {
+        $pop_up_temp['yes_no']['label_yes'] = __( 'Yes', 'air-pop-up' );
+        $pop_up_temp['yes_no']['label_no'] = __( 'No', 'air-pop-up' );
+      }
+
       // If we have fields from theme, gather meta from them
       $theme_fields = get_theme_fields();
       if ( $theme_fields ) {
