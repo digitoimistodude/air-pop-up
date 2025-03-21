@@ -63,7 +63,7 @@ add_action( 'wp_ajax_nopriv_air_pop_up_no', __NAMESPACE__ . '\count_no' );
  * Admin
  */
 include plugin_dir_path( __FILE__ ) . '/inc/admin.php';
-add_filter( 'post_row_actions', __NAMESPACE__ . '\remove_quick_edit' );
+// add_filter( 'post_row_actions', __NAMESPACE__ . '\remove_quick_edit' );
 add_filter( 'manage_air-pop-up_posts_columns', __NAMESPACE__ . '\list_columns' );
 add_action( 'manage_air-pop-up_posts_custom_column', __NAMESPACE__ . '\list_columns_content', 10, 2 );
 
