@@ -44,9 +44,9 @@ popUps.forEach((popUp) => {
     '[tabindex]:not([tabindex="-1"]), a, button, input, textarea, select, details',
   ));
 
-  const popUpLink = popUp.querySelector('.pop-up-link');
-  const popUpYes = popUp.querySelector('.pop-up-yes');
-  const popUpNo = popUp.querySelector('.pop-up-no');
+  const popUpLink = popUp.querySelector('.air-pop-up-link');
+  const popUpYes = popUp.querySelector('.air-pop-up-yes');
+  const popUpNo = popUp.querySelector('.air-pop-up-no');
 
   setTimeout(() => {
     const currentFocusedElement = document.activeElement;
