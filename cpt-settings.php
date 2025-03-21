@@ -3,7 +3,7 @@
 namespace Air_Pop_Up;
 
 /**
- * Register notification post type
+ * Register pop up post type
  */
 // Register Custom Post Type
 function register_pop_up_post_type() {

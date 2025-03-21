@@ -101,7 +101,7 @@ function get_pop_ups() {
   wp_reset_postdata();
 
   return $pop_ups;
-} // end get_notifications
+} // end get_pop_ups
 
 function enqueue_scripts() {
   wp_enqueue_script( 'air-pop-up-scripts',
