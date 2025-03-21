@@ -185,7 +185,7 @@ msgid "Statistics"
 msgstr "Tilastot"
 
 #: inc/admin.php:31
-msgid "%1$s showings"
+msgid "%1$s views"
 msgstr "%1$s näyttökertaa"
 
 #: inc/admin.php:33

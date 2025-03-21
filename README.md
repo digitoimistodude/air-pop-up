@@ -55,4 +55,15 @@ In order to make pop up work properly you have to include these in your template
 
 ### Adding custom data
 
-By default Air pop up comes with fields for a heading and text content. You can add more fields by adding additional ACF fields to your theme. When done with adding fields, show them in custom location called 'Air Pop up additional fields'. Now you should see them when editing a pop up. Custom field data can be accessed in the template like any other data by referencing the new custom field name.
+By default Air pop up comes with fields for a heading and text content, optional link and yes/no choice. You can add more fields by adding additional ACF fields to your theme. When done with adding fields, show them in custom location called 'Air Pop up additional fields'. Now you should see them when editing a pop up. Custom field data can be accessed in the template like any other data by referencing the new custom field name.
+
+## Statistics
+Since 1.1.0
+
+Pop up statistics can be accessed in the admin area. To get statistics working with a custom template, add class names to the elements you want to track like this:
+Track link clicks: `air-pop-up-link
+Track "yes" choice: `air-pop-up-yes`
+Track "no" choice: `air-pop-up-no`
+
+View count is updated every time a pop up is shown, and works with just the `air-pop-up` class on the main wrapper.
+

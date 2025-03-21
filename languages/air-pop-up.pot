@@ -173,7 +173,7 @@ msgid "Statistics"
 msgstr ""
 
 #: inc/admin.php:31
-msgid "%1$s showings"
+msgid "%1$s views"
 msgstr ""
 
 #: inc/admin.php:33
