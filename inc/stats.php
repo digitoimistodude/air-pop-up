@@ -43,17 +43,22 @@ function update_pop_up_stats( $type ) {
     wp_send_json_error();
   }
 
+  if ( ! isset( $_POST['timestamp'] ) ) {
+    wp_send_json_error();
+  }
+
   $guid = sanitize_text_field( $_POST['id'] );
+  $timestamp = sanitize_text_field( $_POST['timestamp'] );
   check_ajax_referer( prefix_meta_key( $guid ), 'nonce' );
 
-  // Get post ID from guid
+  // Get post ID from timestamp
   $args = array(
     'post_type' => 'air-pop-up',
     'posts_per_page' => 1,
     'meta_query' => [
       [
-        'key' => prefix_meta_key( 'guid' ),
-        'value' => $guid,
+        'key' => prefix_meta_key( 'timestamp' ),
+        'value' => $timestamp,
         'compare' => '=',
       ],
     ],
@@ -73,22 +78,3 @@ function update_pop_up_stats( $type ) {
   update_post_meta( $post_id, prefix_meta_key( "stats_{$type}" ), $count );
   wp_send_json_success();
 } // end update_pop_up_stats
-
-function get_post_id_from_guid( $guid ) {
-  $args = array(
-    'post_type' => 'air-pop-up',
-    'posts_per_page' => 1,
-    'meta_query' => array(
-      array(
-        'key' => 'guid',
-        'value' => $guid,
-      ),
-    ),
-  );
-
-  $query = new \WP_Query( $args );
-  if ( $query->have_posts() ) {
-    return $query->posts[0]->ID;
-  }
-  return false;
-} // end get_post_id_from_guid

@@ -36,8 +36,9 @@ const firstFocusableElement = allFocusableElements[0];
 
 popUps.forEach((popUp) => {
   const { popUpId } = popUp.dataset;
+  console.log( popUp.dataset );
   const popUpData = pop_up_data[popUpId];
-  const ajaxUrl = popUpData.ajaxUrl;
+  console.log( pop_up_data );
   const clickableElements = popUp.querySelectorAll('.pop-up-close');
   // popUp.querySelector('.pop-up-content').setAttribute('tabindex', 0);
   const focusableElements = filterNonValidTabableItems(popUp.querySelectorAll(
@@ -94,19 +95,19 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
-          airPopUpClick(popUp, ajaxUrl);
+          airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
-          airPopUpYes(popUp, ajaxUrl);
+          airPopUpYes(popUp);
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
-          airPopUpNo(popUp, ajaxUrl);
+          airPopUpNo(popUp);
         });
       }
     }
@@ -115,7 +116,7 @@ popUps.forEach((popUp) => {
     if (popUpData.show_again === 'never') {
       if (localStorage.getItem(popUpId) !== 'true') {
         popUp.classList.add('visible');
-        airPopUpShow(popUp, ajaxUrl);
+        airPopUpShow(popUp);
       }
 
       clickableElements.forEach((clickableElement) => {
@@ -147,19 +148,19 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
-          airPopUpClick(popUp, ajaxUrl );
+          airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
-          airPopUpYes(popUp, ajaxUrl);
+          airPopUpYes(popUp);
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
-          airPopUpNo(popUp, ajaxUrl);
+          airPopUpNo(popUp);
         });
       }
     }
@@ -175,12 +176,12 @@ popUps.forEach((popUp) => {
 
       if (!storedItem) {
         popUp.classList.add('visible');
-        airPopUpShow(popUp, ajaxUrl);
+        airPopUpShow(popUp);
       }
 
       if (storedItem && new Date().getTime() - storedItem.time >= storedItem.expire) {
         popUp.classList.add('visible');
-        airPopUpShow(popUp, ajaxUrl);
+        airPopUpShow(popUp);
       }
 
       clickableElements.forEach((clickableElement) => {
@@ -212,20 +213,20 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
-          airPopUpClick(popUp, ajaxUrl);
+          airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
-          airPopUpYes(popUp, ajaxUrl);
+          airPopUpYes(popUp);
           popUp.classList.remove('visible');
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
-          airPopUpNo(popUp, ajaxUrl);
+          airPopUpNo(popUp);
           popUp.classList.remove('visible');
         });
       }
@@ -235,40 +236,45 @@ popUps.forEach((popUp) => {
   }, popUpData.delay * 1000);
 });
 
-function airPopUpShow( element, ajaxUrl ) {
-  console.log('Showing pop up:', element.dataset.popUpId);
-  airPopUpAjax( {
+function airPopUpShow(element) {
+  airPopUpAjax({
     action: 'air_pop_up_show',
     id: element.dataset.popUpId,
-  }, ajaxUrl );
+  });
 }
 
-function airPopUpClick( element, ajaxUrl ) {
-  console.log('Clicking pop up:', element.dataset.popUpId);
-  airPopUpAjax( {
+function airPopUpClick(element) {
+  airPopUpAjax({
     action: 'air_pop_up_click',
     id: element.dataset.popUpId,
-  }, ajaxUrl );
+  });
 }
 
-function airPopUpYes( element, ajaxUrl ) {
-  airPopUpAjax( {
+function airPopUpYes(element) {
+  airPopUpAjax({
     action: 'air_pop_up_yes',
     id: element.dataset.popUpId,
-  }, ajaxUrl );
+  });
 }
 
-function airPopUpNo( element, ajaxUrl ) {
-  airPopUpAjax( {
+function airPopUpNo(element) {
+  airPopUpAjax({
     action: 'air_pop_up_no',
     id: element.dataset.popUpId,
-  }, ajaxUrl );
+  });
 }
 
-function airPopUpAjax( data, ajaxUrl ) {
+function airPopUpAjax(data) {
+  const creationTimestamp = pop_up_data[data.id].timestamp;
+  const ajaxUrl = pop_up_data[data.id].ajaxUrl;
+
   data.nonce = pop_up_data[data.id].nonce;
+  data.timestamp = creationTimestamp;
+
+  console.log( data );
+
   var xhr = new XMLHttpRequest();
-  xhr.open( 'POST', ajaxUrl, true );
-  xhr.setRequestHeader( 'Content-Type', 'application/x-www-form-urlencoded' );
-  xhr.send( new URLSearchParams( data ).toString() );
+  xhr.open('POST', ajaxUrl, true);
+  xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+  xhr.send(new URLSearchParams(data).toString());
 }

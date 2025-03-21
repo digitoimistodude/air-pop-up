@@ -65,10 +65,11 @@ function get_pop_ups() {
         'delay'          => absint( get_post_meta( get_the_ID(), 'delay', true ) ),
         'link'           => null,
         'yes_no'         => [],
+        'timestamp'      => get_the_time( 'U', get_the_ID() ),
       ];
 
-      // Save guid to post meta for stats collection
-      update_post_meta( get_the_ID(), prefix_meta_key( 'guid' ), $pop_up_temp['guid'] );
+      // Original timestamp to post meta for stats collection
+      update_post_meta( get_the_ID(), prefix_meta_key( 'timestamp' ), $pop_up_temp['timestamp'] );
 
       // Optional fields
 
@@ -125,6 +126,7 @@ function enqueue_scripts() {
   foreach ( $pop_ups as $pop_up ) {
     $pop_up['ajaxUrl'] = admin_url( 'admin-ajax.php' );
     $pop_up['nonce'] = wp_create_nonce( prefix_meta_key( $pop_up['guid'] ) );
+    $pop_up_data[ $pop_up['creationTimestamp'] ] = get_post_meta( $pop_up['id'], prefix_meta_key( 'timestamp' ), true );
     $pop_up_data[ $pop_up['guid'] ] = $pop_up;
   }
 
