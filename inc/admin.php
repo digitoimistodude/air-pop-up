@@ -30,7 +30,7 @@ function list_columns_content( $column, $post_id ) {
   $stats_mode = $stats_mode ? $stats_mode : 'link';
 
   if ( prefix_meta_key( 'stats' ) === $column ) {
-    echo esc_html( sprintf( __( '%1$s showings', 'air-pop-up' ), $stats['shows'] ) );
+    echo esc_html( sprintf( __( '%1$s views', 'air-pop-up' ), $stats['shows'] ) );
 
     if ( 'link' === $stats_mode && ! empty( get_post_meta( $post_id, 'link', true ) ) ) {
       echo '<br>';
