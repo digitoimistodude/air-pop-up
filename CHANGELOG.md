@@ -1,3 +1,7 @@
+### 1.1.2: 2025-03-27
+
+* Additional version to fix git tagging
+
 ### 1.1.1: 2025-03-27
 
 * Fix pop up not closing on yes/no clicks
