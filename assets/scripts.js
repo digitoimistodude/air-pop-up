@@ -36,9 +36,7 @@ const firstFocusableElement = allFocusableElements[0];
 
 popUps.forEach((popUp) => {
   const { popUpId } = popUp.dataset;
-  console.log( popUp.dataset );
   const popUpData = pop_up_data[popUpId];
-  console.log( pop_up_data );
   const clickableElements = popUp.querySelectorAll('.pop-up-close');
   // popUp.querySelector('.pop-up-content').setAttribute('tabindex', 0);
   const focusableElements = filterNonValidTabableItems(popUp.querySelectorAll(
@@ -102,12 +100,14 @@ popUps.forEach((popUp) => {
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
           airPopUpYes(popUp);
+          popUp.classList.remove('visible');
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
           airPopUpNo(popUp);
+          popUp.classList.remove('visible');
         });
       }
     }
@@ -155,12 +155,14 @@ popUps.forEach((popUp) => {
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
           airPopUpYes(popUp);
+          popUp.classList.remove('visible');
         });
       }
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
           airPopUpNo(popUp);
+          popUp.classList.remove('visible');
         });
       }
     }
@@ -270,8 +272,6 @@ function airPopUpAjax(data) {
 
   data.nonce = pop_up_data[data.id].nonce;
   data.timestamp = creationTimestamp;
-
-  console.log( data );
 
   var xhr = new XMLHttpRequest();
   xhr.open('POST', ajaxUrl, true);
