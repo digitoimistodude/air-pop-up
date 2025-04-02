@@ -9,12 +9,12 @@
  * Author URI:        https://dude.fi
  * License:           GPLv3
  * License URI:       https://www.gnu.org/licenses/gpl-3.0.html
- * Version:           1.1.2
+ * Version:           1.1.3
  */
 
 namespace Air_Pop_Up;
 
-const PLUGIN_VERSION = '1.1.2';
+const PLUGIN_VERSION = '1.1.3';
 
 /**
  * Register CPT.

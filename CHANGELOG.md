@@ -1,3 +1,7 @@
+### 1.1.3: 2025-04-02
+
+* Fix localStorage, sessionStorage etc not working when using yes/no choice buttons
+
 ### 1.1.2: 2025-03-27
 
 * Additional version to fix git tagging
