@@ -93,12 +93,14 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
+          sessionStorage.setItem(popUpId, true);
           airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
+          sessionStorage.setItem(popUpId, true);
           airPopUpYes(popUp);
           popUp.classList.remove('visible');
         });
@@ -106,6 +108,7 @@ popUps.forEach((popUp) => {
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
+          sessionStorage.setItem(popUpId, true);
           airPopUpNo(popUp);
           popUp.classList.remove('visible');
         });
@@ -148,12 +151,14 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
+          localStorage.setItem(popUpId, true);
           airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
+          localStorage.setItem(popUpId, true);
           airPopUpYes(popUp);
           popUp.classList.remove('visible');
         });
@@ -161,6 +166,7 @@ popUps.forEach((popUp) => {
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
+          localStorage.setItem(popUpId, true);
           airPopUpNo(popUp);
           popUp.classList.remove('visible');
         });
@@ -215,12 +221,14 @@ popUps.forEach((popUp) => {
 
       if (popUpLink) {
         popUpLink.addEventListener('click', () => {
+          storeData(popUpId, popUpData.timed_time * 1000);
           airPopUpClick(popUp);
         });
       }
 
       if (popUpYes) {
         popUpYes.addEventListener('click', () => {
+          storeData(popUpId, popUpData.timed_time * 1000);
           airPopUpYes(popUp);
           popUp.classList.remove('visible');
         });
@@ -228,6 +236,7 @@ popUps.forEach((popUp) => {
 
       if (popUpNo) {
         popUpNo.addEventListener('click', () => {
+          storeData(popUpId, popUpData.timed_time * 1000);
           airPopUpNo(popUp);
           popUp.classList.remove('visible');
         });
